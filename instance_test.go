@@ -4,7 +4,7 @@ import (
 	"context"
 	"io/ioutil"
 	"pandax/message"
-	"pandax/pkg/rule_engine/nodes"
+	"pandax/nodes"
 	"testing"
 )
 
