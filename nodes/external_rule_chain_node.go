@@ -2,7 +2,7 @@ package nodes
 
 import (
 	"pandax/apps/rule/services"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 
 	"errors"
 	"fmt"

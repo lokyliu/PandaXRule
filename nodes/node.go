@@ -4,8 +4,8 @@ import (
 	"errors"
 	"github.com/sirupsen/logrus"
 	"log"
+	"pandax/message"
 	"pandax/pkg/rule_engine/manifest"
-	"pandax/pkg/rule_engine/message"
 )
 
 type Node interface {

@@ -1,12 +1,8 @@
 package nodes
 
 import (
-	"encoding/json"
 	"github.com/sirupsen/logrus"
-	"log"
-	"pandax/apps/device/services"
-	"pandax/pkg/global"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 const ClearAlarmNodeName = "ClearAlarmNode"
@@ -31,11 +27,11 @@ func (f clearAlarmNodeFactory) Create(id string, meta Metadata) (Node, error) {
 
 func (n *clearAlarmNode) Handle(msg message.Message) error {
 	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
-	cleared := n.GetLinkedNode("Cleared")
-	failure := n.GetLinkedNode("Failure")
+	//cleared := n.GetLinkedNode("Cleared")
+	//failure := n.GetLinkedNode("Failure")
 
-	alarm := services.DeviceAlarmModelDao.FindOneByType(msg.GetMetadata().GetKeyValue("deviceId").(string), n.AlarmType, "0")
-	if alarm.DeviceId != "" {
+	//alarm := services.DeviceAlarmModelDao.FindOneByType(msg.GetMetadata().GetKeyValue("deviceId").(string), n.AlarmType, "0")
+	/*if alarm.DeviceId != "" {
 		log.Println("清除告警")
 		alarm.State = global.CLEARED
 		marshal, _ := json.Marshal(msg.GetMsg())
@@ -54,6 +50,6 @@ func (n *clearAlarmNode) Handle(msg message.Message) error {
 		if failure != nil {
 			return failure.Handle(msg)
 		}
-	}
+	}*/
 	return nil
 }

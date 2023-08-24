@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/dop251/goja"
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 type ScriptEngine interface {

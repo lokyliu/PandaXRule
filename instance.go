@@ -3,9 +3,9 @@ package rule_engine
 import (
 	"context"
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/manifest"
-	"pandax/pkg/rule_engine/message"
-	"pandax/pkg/rule_engine/nodes"
+	"pandax/manifest"
+	"pandax/message"
+	"pandax/nodes"
 )
 
 type ruleChainInstance struct {

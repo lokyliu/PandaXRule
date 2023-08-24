@@ -3,8 +3,8 @@ package nodes
 import (
 	"github.com/sirupsen/logrus"
 	"log"
+	"pandax/message"
 	"pandax/pkg/global"
-	"pandax/pkg/rule_engine/message"
 )
 
 type saveTimeSeriesNode struct {

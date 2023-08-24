@@ -3,7 +3,7 @@ package nodes
 import (
 	"github.com/nats-io/nats.go"
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 type externalNatsNode struct {

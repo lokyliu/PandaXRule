@@ -3,7 +3,7 @@ package nodes
 import (
 	"encoding/json"
 	"fmt"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"

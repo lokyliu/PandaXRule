@@ -6,8 +6,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"pandax/apps/device/entity"
 	"pandax/apps/device/services"
+	"pandax/message"
 	"pandax/pkg/global"
-	"pandax/pkg/rule_engine/message"
 	"time"
 )
 

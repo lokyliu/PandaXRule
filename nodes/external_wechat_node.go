@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/XM-GO/PandaKit/httpclient"
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 type externalWechatNode struct {

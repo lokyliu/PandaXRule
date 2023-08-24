@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"net/smtp"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 	"strings"
 
 	"github.com/jordan-wright/email"

@@ -2,8 +2,7 @@ package nodes
 
 import (
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/global"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 type saveAttributesNode struct {
@@ -34,13 +33,13 @@ func (n *saveAttributesNode) Handle(msg message.Message) error {
 		}
 	}
 	//deviceId := msg.GetMetadata().GetValues()["deviceId"].(string)
-	deviceName := msg.GetMetadata().GetValues()["deviceName"].(string)
-	err := global.TdDb.InsertDevice(deviceName+"_attributes", msg.GetMsg())
+	//deviceName := msg.GetMetadata().GetValues()["deviceName"].(string)
+	/*err := global.TdDb.InsertDevice(deviceName+"_attributes", msg.GetMsg())
 	if err != nil {
 		if failureLabelNode != nil {
 			return failureLabelNode.Handle(msg)
 		}
-	}
+	}*/
 	if successLabelNode != nil {
 		return successLabelNode.Handle(msg)
 	}

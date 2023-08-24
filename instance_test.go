@@ -3,7 +3,7 @@ package rule_engine
 import (
 	"context"
 	"io/ioutil"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 	"pandax/pkg/rule_engine/nodes"
 	"testing"
 )

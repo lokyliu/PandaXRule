@@ -3,8 +3,8 @@ package nodes
 import (
 	"pandax/apps/rule/entity"
 	"pandax/apps/rule/services"
+	"pandax/message"
 	"pandax/pkg/global"
-	"pandax/pkg/rule_engine/message"
 )
 
 type logNode struct {

@@ -2,7 +2,7 @@ package nodes
 
 import (
 	"fmt"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 	"sync"
 	"time"
 

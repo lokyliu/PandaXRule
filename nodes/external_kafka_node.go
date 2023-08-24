@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/Shopify/sarama"
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 	"strings"
 	"time"
 )

@@ -2,11 +2,11 @@ package nodes
 
 import (
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
-//检查关联关系
-//该消息来自与哪个实体或到那个实体
+// 检查关联关系
+// 该消息来自与哪个实体或到那个实体
 type deviceTypeSwitchNode struct {
 	bareNode
 }

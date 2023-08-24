@@ -2,7 +2,7 @@ package nodes
 
 import (
 	"github.com/sirupsen/logrus"
-	"pandax/pkg/rule_engine/message"
+	"pandax/message"
 )
 
 type messageTypeFilterNode struct {
