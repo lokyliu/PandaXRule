@@ -1,6 +1,6 @@
 package nodes
 
-// init register all node's factory
+// init 注册所有节点
 func init() {
 	RegisterFactory(inputNodeFactory{})
 	RegisterFactory(switchFilterNodeFactory{})
