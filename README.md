@@ -1,7 +1,7 @@
 # PandaX
 
 <div align="center"><img src="https://s3.bmp.ovh/imgs/2021/12/86b15968432fc6ea.png"/></div>
-<div align="center"><h3 align="center">PandaX 物联网格则引擎</h3></div>
+<div align="center"><h3 align="center">PandaX 物联网规则引擎</h3></div>
 <div align="center"><h3 align="center">基于Go前后端分离架构，代码精简，开箱即用，前端紧随前沿 Vue3.0 + TypeScript + vite3 + Element-plus技术</h3></div>
 
 
@@ -9,7 +9,7 @@
 
 * 流程编排：支持对规则链进行动态编排，你可以把业务地封装成组件，然后通过低代码方式实现你高度变化的业务需求。
 * 成熟的规则引擎: 项目针对数据处理使用了规则链进行处理，简化开发及配置。
-* 前端采用VUE3.0+ TypeScript + vite3 + Element-plus：[PandaUI](https://gitee.com/XM-GO/PandaUi)。
+* 全新技术栈：前端采用VUE3.0+ TypeScript + vite3 + Element-plus：[PandaUI](https://gitee.com/XM-GO/PandaUi)。
 * 高效率的开发：全部采用拖拉拽的方式进行数据处理。
 
 ## 🏭在线体验
