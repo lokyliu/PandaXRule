@@ -1,11 +1,8 @@
 package nodes
 
 import (
-	"pandax/apps/rule/services"
 	"pandax/message"
 
-	"errors"
-	"fmt"
 	"github.com/sirupsen/logrus"
 )
 
@@ -29,10 +26,10 @@ func (f externalRuleChainNodeFactory) Create(id string, meta Metadata) (Node, er
 
 func (n *externalRuleChainNode) Handle(msg message.Message) error {
 	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
-	data := services.RuleChainModelDao.FindOne(n.RuleId)
+	/*data := services.RuleChainModelDao.FindOne(n.RuleId)
 	if data == nil {
 		return errors.New(fmt.Sprintf("节点 %s ,获取规则链失败", n.Name()))
-	}
+	}*/
 
 	/*code, _ := json.Marshal(data.RuleDataJson.LfData.DataCode)
 	m, err := manifest.New(code)

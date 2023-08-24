@@ -2,9 +2,7 @@ package nodes
 
 import (
 	"github.com/sirupsen/logrus"
-	"log"
 	"pandax/message"
-	"pandax/pkg/global"
 )
 
 type saveTimeSeriesNode struct {
@@ -34,16 +32,7 @@ func (n *saveTimeSeriesNode) Handle(msg message.Message) error {
 			return nil
 		}
 	}
-	//deviceId := msg.GetMetadata().GetValues()["deviceId"].(string)
-	deviceName := msg.GetMetadata().GetValues()["deviceName"].(string)
-	log.Println("telemetry", msg.GetMsg())
-	err := global.TdDb.InsertDevice(deviceName+"_telemetry", msg.GetMsg())
-	log.Println(err)
-	if err != nil {
-		if failureLabelNode != nil {
-			return failureLabelNode.Handle(msg)
-		}
-	}
+
 	if successLabelNode != nil {
 		return successLabelNode.Handle(msg)
 	}

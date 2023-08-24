@@ -30,26 +30,5 @@ func (n *clearAlarmNode) Handle(msg message.Message) error {
 	//cleared := n.GetLinkedNode("Cleared")
 	//failure := n.GetLinkedNode("Failure")
 
-	//alarm := services.DeviceAlarmModelDao.FindOneByType(msg.GetMetadata().GetKeyValue("deviceId").(string), n.AlarmType, "0")
-	/*if alarm.DeviceId != "" {
-		log.Println("清除告警")
-		alarm.State = global.CLEARED
-		marshal, _ := json.Marshal(msg.GetMsg())
-		alarm.Details = string(marshal)
-		err := services.DeviceAlarmModelDao.Update(*alarm)
-		if err != nil {
-			if failure != nil {
-				return failure.Handle(msg)
-			}
-		} else {
-			if cleared != nil {
-				return cleared.Handle(msg)
-			}
-		}
-	} else {
-		if failure != nil {
-			return failure.Handle(msg)
-		}
-	}*/
 	return nil
 }

@@ -1,10 +1,8 @@
 package nodes
 
 import (
-	"pandax/apps/rule/entity"
-	"pandax/apps/rule/services"
+	"log"
 	"pandax/message"
-	"pandax/pkg/global"
 )
 
 type logNode struct {
@@ -37,21 +35,8 @@ func (n *logNode) Handle(msg message.Message) error {
 			return err
 		}
 	}
-	services.RuleChainMsgLogModelDao.Insert(entity.RuleChainMsgLog{
-		MessageId:  msg.GetId(),
-		MsgType:    msg.GetType(),
-		DeviceName: msg.GetMetadata().GetValues()["deviceName"].(string),
-		Ts:         msg.GetTs(),
-		Content:    logMessage,
-	})
-	global.Log.Info(logMessage)
-	if err != nil {
-		if failureLableNode != nil {
-			return failureLableNode.Handle(msg)
-		} else {
-			return err
-		}
-	}
+	log.Println(logMessage)
+
 	if successLableNode != nil {
 		return successLableNode.Handle(msg)
 	}

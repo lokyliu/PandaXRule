@@ -1,14 +1,8 @@
 package nodes
 
 import (
-	"encoding/json"
-	"github.com/kakuilan/kgo"
 	"github.com/sirupsen/logrus"
-	"pandax/apps/device/entity"
-	"pandax/apps/device/services"
 	"pandax/message"
-	"pandax/pkg/global"
-	"time"
 )
 
 type createAlarmNode struct {
@@ -32,46 +26,9 @@ func (f createAlarmNodeFactory) Create(id string, meta Metadata) (Node, error) {
 func (n *createAlarmNode) Handle(msg message.Message) error {
 	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
 
-	created := n.GetLinkedNode("Created")
-	updated := n.GetLinkedNode("Updated")
-	failure := n.GetLinkedNode("Failure")
+	//created := n.GetLinkedNode("Created")
+	//updated := n.GetLinkedNode("Updated")
+	//failure := n.GetLinkedNode("Failure")
 
-	alarm := services.DeviceAlarmModelDao.FindOneByType(msg.GetMetadata().GetKeyValue("deviceId").(string), n.AlarmType, "0")
-	if alarm.DeviceId != "" {
-		marshal, _ := json.Marshal(msg.GetMsg())
-		alarm.Details = string(marshal)
-		err := services.DeviceAlarmModelDao.Update(*alarm)
-		if err != nil {
-			if failure != nil {
-				return failure.Handle(msg)
-			}
-		} else {
-			if updated != nil {
-				return updated.Handle(msg)
-			}
-		}
-	} else {
-		alarm = &entity.DeviceAlarm{}
-		alarm.Id = kgo.KStr.Uniqid("a")
-		alarm.DeviceId = msg.GetMetadata().GetKeyValue("deviceId").(string)
-		alarm.ProductId = msg.GetMetadata().GetKeyValue("productId").(string)
-		alarm.Name = msg.GetMetadata().GetKeyValue("deviceName").(string)
-		alarm.Level = n.AlarmSeverity
-		alarm.State = global.ALARMING
-		alarm.Type = n.AlarmType
-		alarm.Time = time.Now()
-		marshal, _ := json.Marshal(msg.GetMsg())
-		alarm.Details = string(marshal)
-		err := services.DeviceAlarmModelDao.Insert(*alarm)
-		if err != nil {
-			if failure != nil {
-				return failure.Handle(msg)
-			}
-		} else {
-			if created != nil {
-				return created.Handle(msg)
-			}
-		}
-	}
 	return nil
 }
