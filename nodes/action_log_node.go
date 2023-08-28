@@ -1,7 +1,6 @@
 package nodes
 
 import (
-	"log"
 	"pandax/message"
 )
 
@@ -22,11 +21,11 @@ func (f logNodeFactory) Create(id string, meta Metadata) (Node, error) {
 	return decodePath(meta, node)
 }
 
-func (n *logNode) Handle(msg message.Message) error {
+func (n *logNode) Handle(msg *message.Message) error {
 	successLableNode := n.GetLinkedNode("Success")
-	failureLableNode := n.GetLinkedNode("Failure")
+	//failureLableNode := n.GetLinkedNode("Failure")
 
-	scriptEngine := NewScriptEngine(msg, "ToString", n.Script)
+	/*scriptEngine := NewScriptEngine(*msg, "ToString", n.Script)
 	logMessage, err := scriptEngine.ScriptToString()
 	if err != nil {
 		if failureLableNode != nil {
@@ -34,8 +33,7 @@ func (n *logNode) Handle(msg message.Message) error {
 		} else {
 			return err
 		}
-	}
-	log.Println(logMessage)
+	}*/
 
 	if successLableNode != nil {
 		return successLableNode.Handle(msg)

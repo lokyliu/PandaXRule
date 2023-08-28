@@ -25,8 +25,8 @@ func (f clearAlarmNodeFactory) Create(id string, meta Metadata) (Node, error) {
 	return decodePath(meta, node)
 }
 
-func (n *clearAlarmNode) Handle(msg message.Message) error {
-	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
+func (n *clearAlarmNode) Handle(msg *message.Message) error {
+	logrus.Infof("%s handle message '%s'", n.Name(), msg.MsgType)
 	//cleared := n.GetLinkedNode("Cleared")
 	//failure := n.GetLinkedNode("Failure")
 

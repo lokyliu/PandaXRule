@@ -40,7 +40,7 @@ func RegisterFactory(f Factory) {
 	allCategories = append(allCategories, map[string]interface{}{"name": f.Name(), "labels": f.Labels()})
 }
 
-// NewNode 获取实例化节点
+// NewNode is the only way to create a new node
 func NewNode(nodeType string, id string, meta Metadata) (Node, error) {
 	if f, found := allNodeFactories[nodeType]; found {
 		return f.Create(id, meta)

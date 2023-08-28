@@ -25,18 +25,18 @@ func (f deviceTypeSwitchNodeFactory) Create(id string, meta Metadata) (Node, err
 	return decodePath(meta, node)
 }
 
-func (n *deviceTypeSwitchNode) Handle(msg message.Message) error {
-	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
+func (n *deviceTypeSwitchNode) Handle(msg *message.Message) error {
+	logrus.Infof("%s handle message '%s'", n.Name(), msg.MsgType)
 
 	deviceLabelNode := n.GetLinkedNode(message.DEVICE)
 	gatewayLabelNode := n.GetLinkedNode(message.GATEWAY)
 
-	if msg.GetMetadata().GetKeyValue("deviceType") == message.DEVICE {
+	if msg.Metadata.GetValue("deviceType").(string) == message.DEVICE {
 		if deviceLabelNode != nil {
 			return deviceLabelNode.Handle(msg)
 		}
 	}
-	if msg.GetMetadata().GetKeyValue("deviceType") == message.GATEWAY {
+	if msg.Metadata.GetValue("deviceType").(string) == message.GATEWAY {
 		if gatewayLabelNode != nil {
 			return gatewayLabelNode.Handle(msg)
 		}

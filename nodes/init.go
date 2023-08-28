@@ -1,6 +1,6 @@
 package nodes
 
-// init 注册所有节点
+// init register all node's factory
 func init() {
 	RegisterFactory(inputNodeFactory{})
 	RegisterFactory(switchFilterNodeFactory{})
@@ -28,5 +28,6 @@ func init() {
 	RegisterFactory(externalSendEmailNodeFactory{})
 	RegisterFactory(externalSendSmsNodeFactory{})
 	RegisterFactory(externalRuleChainNodeFactory{})
-
+	RegisterFactory(rpcRespondFactory{})
+	RegisterFactory(rpcRequestNodeFactory{})
 }

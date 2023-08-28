@@ -21,11 +21,11 @@ func (f saveTimeSeriesNodeFactory) Create(id string, meta Metadata) (Node, error
 	return decodePath(meta, node)
 }
 
-func (n *saveTimeSeriesNode) Handle(msg message.Message) error {
-	logrus.Infof("%s handle message '%s'", n.Name(), msg.GetType())
+func (n *saveTimeSeriesNode) Handle(msg *message.Message) error {
+	logrus.Infof("%s handle message '%s'", n.Name(), msg.MsgType)
 	successLabelNode := n.GetLinkedNode("Success")
 	failureLabelNode := n.GetLinkedNode("Failure")
-	if msg.GetType() != message.TelemetryMes {
+	if msg.MsgType != message.TelemetryMes {
 		if failureLabelNode != nil {
 			return failureLabelNode.Handle(msg)
 		} else {
